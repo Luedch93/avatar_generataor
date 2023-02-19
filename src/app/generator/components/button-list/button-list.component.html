@@ -1,0 +1,14 @@
+<ng-container *ngIf="buttons?.length; else empty">
+  <menu>
+    <li *ngFor="let button of buttons">
+      <button
+        [class.active]="button.value === selectedButton?.value"
+        type="button"
+        (click)="buttonClicked(button)"
+      >
+        {{ button.name }}
+      </button>
+    </li>
+  </menu>
+</ng-container>
+<ng-template #empty>No options...</ng-template>
