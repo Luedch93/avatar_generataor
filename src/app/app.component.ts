@@ -6,4 +6,10 @@ import { Button } from './generator/types/Button';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
+export class AppComponent {
+  selectedHat: Button | null = null;
+
+  handleHatChange(button: Button) {
+    this.selectedHat = button;
+  }
+}

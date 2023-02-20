@@ -1,1 +1,5 @@
-<canvas avatar></canvas>
+<canvas [hat]="selectedHat?.value" avatar></canvas>
+<app-hat-menu
+  (buttonClicked)="handleHatChange($event)"
+  [selectedButton]="selectedHat"
+></app-hat-menu>

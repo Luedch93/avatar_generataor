@@ -9,7 +9,7 @@ import { Button } from '../../types/Button';
 export class ButtonListComponent {
   @Output() optionClick = new EventEmitter<Button>();
   @Input() buttons!: Button[];
-  @Input() selectedButton!: Button;
+  @Input() selectedButton: Button | null = null;
 
   buttonClicked(button: Button) {
     this.optionClick.emit(button);

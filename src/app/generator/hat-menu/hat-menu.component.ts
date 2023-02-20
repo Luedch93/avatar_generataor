@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Button } from '../types/Button';
 
 @Component({
@@ -10,20 +10,21 @@ export class HatMenuComponent {
   hatButtons: Button[] = [
     {
       name: 'Hat',
-      value: 'hat',
+      value: 'Diploma-Hat.png',
     },
     {
       name: 'Helicopter hat',
-      value: 'helicopter-hat',
+      value: 'helicopter-hat-clipart.jpg',
     },
     {
       name: 'Santa',
-      value: 'santa',
+      value: 'christmas_hat_transparent_image.png',
     },
   ];
-  selectedButton!: Button;
+  @Input() selectedButton: Button | null = null;
+  @Output() buttonClicked = new EventEmitter<Button>();
 
   handleClick(button: Button) {
-    this.selectedButton = button;
+    this.buttonClicked.emit(button);
   }
 }
